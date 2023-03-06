@@ -6,7 +6,7 @@ This project is a server that allows users to keep track of their tasks easily s
 The application has been built with the MVC design pattern.
 
 To use the API use the following path before endpoints
-      waan    soo     wada   aa
+      https://abdilatifshukri-sinatra-api.onrender.com
 
 
 ## Pre-Requisites
