@@ -8,16 +8,13 @@ task :server do
     return
   end
 
-  # rackup -p PORT will run on the port specified (9292 by default)
+  ENV["RACK_ENV"] ||= "development"
   ENV["PORT"] ||= "9292"
   rackup = "rackup -p #{ENV["PORT"]}"
 
-  # rerun allows auto-reloading of server when files are updated
-  # -b runs in the background (include it or binding.pry won't work)
-  exec "bundle exec rerun -b '#{rackup}'"
-end
-
-desc "Start the console"
-task :console do
-  Pry.start
+  if ENV["RACK_ENV"] == "production"
+    exec rackup
+  else
+    exec "bundle exec rerun -b '#{rackup}'"
+  end
 end
