@@ -1,0 +1,12 @@
+#connection between database and models
+default: &default
+  adapter: sqlite3
+  timeout: 5000
+
+development:
+  <<: *default
+  database: db/development.sqlite3
+
+production:
+  <<: *default
+  database: db/task-prod.db
